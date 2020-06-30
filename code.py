@@ -3,6 +3,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import numpy as np
 import pandas as pd
 import pprint
+from lists import database_list_of_lists, dont_print, python_list
 
 #all verifications and sheet/txt file opening:
 scope = ["https://www.googleapis.com/auth/drive"]
@@ -13,16 +14,11 @@ pp = pprint.PrettyPrinter()
 client = gc.authorize(credentials)
 
 print("Welcome to the google sheets automation program, to begin automating data transfer, enter yes")
-start_point = input("")
+start_point = raw_input("")
 
 if start_point == 'yes':
     print("Please enter the worksheet name that you wish to access.")
-    what_sheet = input("")
-    #copy paste database data from phpMyAdmin
-    database_list_of_lists = [('1', '97433789190', 'Al Jasrah', '25', '1'),
-    ('2', '55860636', 'Al Jasrah', '50', '25.2841, 51.441'),
-    ('3', '55150250', 'Al Jasrah', '50', '25.2841, 51.441'),
-    ('4', '33216932', 'Al Jasrah', '24', '25.3318,51.5255')]
+    what_sheet = raw_input("")
 
     #value list of number column:
     worksheet = client.open(what_sheet).sheet1
@@ -35,12 +31,12 @@ if start_point == 'yes':
 
     #start of userinterface
     print("What sheet number within the worksheet would you like to access?")
-    what_sheet = input("")
+    what_sheet = raw_input("")
 
     if what_sheet == '1':
 
         print("To input new data from database, press 1. To view data within google spread sheet, press 2.")
-        last_choice = input("")
+        last_choice = raw_input("")
 
         if last_choice == '1':
             print("code is running...")
@@ -78,9 +74,8 @@ if start_point == 'yes':
 
             #retrieve data from google spreadsheet1
             list_of_lists = sheet.get_all_values()
-            dont_print = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+        
             check_length = len(list_of_lists)
-            python_list = []
 
             #while loop to remove data from all values and put necessary data within python list
             i = 0
@@ -98,10 +93,3 @@ if start_point == 'yes':
                 else:
                     break
 
-    elif what_sheet != '1':
-        print("Thank you for using the gspread automation program.")
-        exit(0)
-
-else:
-    print("Thank you for using the gspread automation program.")
-    exit(0)
