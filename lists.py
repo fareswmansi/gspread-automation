@@ -10,3 +10,11 @@ area_list = []
 building_list = []
 
 location_list = []
+
+number_coordinate_list = []
+
+area_coordinate_list = []
+
+building_coordinate_list = []
+
+location_coordinate_list = []
