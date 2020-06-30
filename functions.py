@@ -1,3 +1,5 @@
+from variables import worksheet
+
 #loop through database list and seperate phone number
 def number_loop(database_list_of_lists, number_list):
     for i in range(len(database_list_of_lists)):
@@ -45,3 +47,23 @@ def location_coordinate_create(location_coordinate_list, location_list):
     for i in range(2, (len(location_list) + 2)):
         append_this = coordinate + str(i)
         location_coordinate_list.append(append_this)
+
+#input number in spreadsheet
+def number_input(number_list, number_coordinate_list):
+    for i in range(len(number_coordinate_list)):
+        worksheet.update(number_coordinate_list[i], number_list[i])
+
+#input area in spreadsheet
+def area_input(area_list, area_coordinate_list):
+    for i in range(len(area_coordinate_list)):
+        worksheet.update(area_coordinate_list[i], area_list[i])
+
+#input building in spreadsheet
+def building_input(building_list, building_coordinate_list):
+    for i in range(len(building_coordinate_list)):
+        worksheet.update(building_coordinate_list[i], building_list[i])
+
+#input location in spreadsheet
+def location_input(location_list, location_coordinate_list):
+    for i in range(len(location_coordinate_list)):
+        worksheet.update(location_coordinate_list[i], location_list[i])
