@@ -20,50 +20,36 @@ def location_loop(database_list_of_lists, location_list):
     for i in range(len(database_list_of_lists)):
         location_list.append(database_list_of_lists[i][4])
 
-#create coordinates for number input
-def number_coordinate_create(number_coordinate_list, number_list):
-    coordinate = 'A'
-    for i in range(2, (len(number_list) + 2)):
-        append_this = coordinate + str(i)
-        number_coordinate_list.append(append_this)
+
+#find strings for number input
+def find_strings(test_coordinate_list, number_list):
+    for i in range(len(number_list)):
+        cell = worksheet.find(number_list[i])
+        test_coordinate_list.append(cell)
 
 #create coordinates for area input
-def area_coordinate_create(area_coordinate_list, area_list):
-    coordinate = 'B'
-    for i in range(2, (len(area_list) + 2)):
-        append_this = coordinate + str(i)
-        area_coordinate_list.append(append_this)
+def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
+    for i in range(len(test_coordinate_list)):
+        seperateMe = str(test_coordinate_list[i]).replace('<Cell ', '')
+        secondSeperate = str(seperateMe).replace('u\'%s' % (number_list[i]), '')
+        thirdSeperate = str(secondSeperate).replace(' \'>', '')
+        fourthSeperate = str(thirdSeperate).replace('1', '')
+        fifthSeperate = str(fourthSeperate).replace('R', '')
+        finalSeperate = str(fifthSeperate).replace('C', '')
+        row_coordinate.append(finalSeperate)
 
-#create coordinates for building input
-def building_coordinate_create(building_coordinate_list, building_list):
-    coordinate = 'C'
-    for i in range(2, (len(building_list) + 2)):
-        append_this = coordinate + str(i)
-        building_coordinate_list.append(append_this)
 
-#create coordinate for location input
-def location_coordinate_create(location_coordinate_list, location_list):
-    coordinate = 'D'
-    for i in range(2, (len(location_list) + 2)):
-        append_this = coordinate + str(i)
-        location_coordinate_list.append(append_this)
+#area input into google sheet
+def area_input(row_coordinate, area_list):
+    for i in range(len(row_coordinate)):
+        worksheet.update_cell(row_coordinate[i], 2, area_list[i])
 
-#input number in spreadsheet
-def number_input(number_list, number_coordinate_list):
-    for i in range(len(number_coordinate_list)):
-        worksheet.update(number_coordinate_list[i], number_list[i])
+#building input into google sheet
+def building_input(row_coordinate, building_list):
+    for i in range(len(row_coordinate)):
+        worksheet.update_cell(row_coordinate[i], 3, building_list[i])
 
-#input area in spreadsheet
-def area_input(area_list, area_coordinate_list):
-    for i in range(len(area_coordinate_list)):
-        worksheet.update(area_coordinate_list[i], area_list[i])
-
-#input building in spreadsheet
-def building_input(building_list, building_coordinate_list):
-    for i in range(len(building_coordinate_list)):
-        worksheet.update(building_coordinate_list[i], building_list[i])
-
-#input location in spreadsheet
-def location_input(location_list, location_coordinate_list):
-    for i in range(len(location_coordinate_list)):
-        worksheet.update(location_coordinate_list[i], location_list[i])
+#location innput into google sheet
+def location_input(row_coordinate, location_list):
+    for i in range(len(row_coordinate)):
+        worksheet.update_cell(row_coordinate[i], 4, location_list[i])
