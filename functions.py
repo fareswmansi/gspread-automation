@@ -38,7 +38,6 @@ def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
         finalSeperate = str(fifthSeperate).replace('C', '')
         row_coordinate.append(finalSeperate)
 
-
 #area input into google sheet
 def area_input(row_coordinate, area_list):
     for i in range(len(row_coordinate)):
