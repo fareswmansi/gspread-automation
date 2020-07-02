@@ -52,3 +52,21 @@ def building_input(row_coordinate, building_list):
 def location_input(row_coordinate, location_list):
     for i in range(len(row_coordinate)):
         worksheet.update_cell(row_coordinate[i], 4, location_list[i])
+
+def find_customers(recurring_customers_raw):
+    values = worksheet.col_values(1)
+    recurring_customers_raw.append(values)
+
+def customer_seperate(recurring_customers, recurring_customers_raw):
+    for i in range(len(recurring_customers_raw)):
+        seperatefirst = str(recurring_customers_raw[i]).replace('u\'Number\',', '')
+        seperatesecond = str(seperatefirst).replace('u\'', '')
+        finalseperate = str(seperatesecond).replace('\'', '')
+        recurring_customers.append(finalseperate)
+
+def find_recurring(recurring_customers):
+    for i in range(len(recurring_customers)):
+        if recurring_customers[i] == recurring_customers[i]:
+            print(recurring_customers[i])
+        else:
+            print("No recurring customers founnd.")
