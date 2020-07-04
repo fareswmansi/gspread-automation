@@ -71,11 +71,15 @@ def find_recurring(recurring_customers):
         else:
             print("No recurring customers founnd.")
 
-def test_function(recurring_customers_raw, recurring_customers):
+def getting_cell_value(recurring_customers_raw, recurring_customers):
     cell = worksheet.col_values(1)
     recurring_customers_raw.append(cell)
-    recurring_customers.append(cell)
-    for i in range(len(recurring_customers_raw)):
-        for l in range(len(recurring_customers)):
-            if recurring_customers_raw[i] == recurring_customers[l]:
-                print(recurring_customers_raw[i])
+    for list in recurring_customers_raw:
+        list.pop(0)
+        for i in range(len(list)):
+            recurring_customers.append(list[i])
+
+def matched_string(recurring_customers):
+    for i in range(len(recurring_customers)):
+        seperatefirst = str(recurring_customers[i]).replace('u\'', '')
+        recurring_customers.append(seperatefirst)
