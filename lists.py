@@ -20,3 +20,5 @@ row_coordinate = []
 recurring_customers_raw = []
 
 recurring_customers = []
+
+final_recurring_customers = []

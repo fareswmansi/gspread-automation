@@ -79,7 +79,13 @@ def getting_cell_value(recurring_customers_raw, recurring_customers):
         for i in range(len(list)):
             recurring_customers.append(list[i])
 
-def matched_string(recurring_customers):
+def matched_string(recurring_customers, final_recurring_customers):
     for i in range(len(recurring_customers)):
         seperatefirst = str(recurring_customers[i]).replace('u\'', '')
-        recurring_customers.append(seperatefirst)
+        final_recurring_customers.append(seperatefirst)
+
+def find_matched_string(final_recurring_customers):
+    for number in final_recurring_customers:
+        for i in range(len(final_recurring_customers)):
+            if number == final_recurring_customers[i]:
+                print(number)
