@@ -1,6 +1,6 @@
 from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw
 from variables import scope, credentials, worksheet, client
-from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring
+from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring, test_function
 
 
 print("Welcome to the google sheet automation program, to begin automating, press YES")
@@ -29,6 +29,11 @@ if first_choice == 'yes' or first_choice == 'YES':
         area_input(row_coordinate, area_list)
         building_input(row_coordinate, building_list)
         location_input(row_coordinate, location_list)
+
+        print("Recurring customers: ")
+
+        test_function(recurring_customers_raw, recurring_customers)
+
     else:
         print("Finding recurring orders...")
         find_customers(recurring_customers_raw)

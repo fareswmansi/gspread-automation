@@ -70,3 +70,12 @@ def find_recurring(recurring_customers):
             print(recurring_customers[i])
         else:
             print("No recurring customers founnd.")
+
+def test_function(recurring_customers_raw, recurring_customers):
+    cell = worksheet.col_values(1)
+    recurring_customers_raw.append(cell)
+    recurring_customers.append(cell)
+    for i in range(len(recurring_customers_raw)):
+        for l in range(len(recurring_customers)):
+            if recurring_customers_raw[i] == recurring_customers[l]:
+                print(recurring_customers_raw[i])
