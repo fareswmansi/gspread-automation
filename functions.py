@@ -84,10 +84,10 @@ def matched_string(recurring_customers, final_recurring_customers):
         seperatefirst = str(recurring_customers[i]).replace('u\'', '')
         final_recurring_customers.append(seperatefirst)
 
-def find_matched_string(final_recurring_customers, test_list, test_test_list):
-    for i in range(len(final_recurring_customers)):
-        cell_list = worksheet.findall(final_recurring_customers[i])
+def find_matched_string(number_list, test_list, test_test_list):
+    for i in range(len(number_list)):
+        cell_list = worksheet.findall(number_list[i])
         test_list.append(cell_list)
         for number in test_list:
-            if len(number) > 1:
+            if (len(number)) > 1:
                 test_test_list.append(number)

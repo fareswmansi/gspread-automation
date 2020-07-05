@@ -34,7 +34,7 @@ if first_choice == 'yes' or first_choice == 'YES':
 
         getting_cell_value(recurring_customers_raw, recurring_customers)
         matched_string(recurring_customers, final_recurring_customers)
-        find_matched_string(final_recurring_customers, test_list, test_test_list)
+        find_matched_string(number_list, test_list, test_test_list)
         print(test_test_list)
 
     else:
