@@ -1,5 +1,22 @@
 from variables import worksheet
 
+#gets values of label columns in order to proceed with the checking process
+def first_check(first_check_list, final_check_list):
+    values_list = worksheet.row_values(1)
+    first_check_list.append(values_list)
+    for list in first_check_list:
+        for i in range(len(list)):
+            seperateme = str(list[i]).replace('u', '')
+            final_check_list.append(seperateme)
+
+#checks the column names in empty spreadsheet to avoid confusion
+def you_may_pass(final_check_list):
+    if (final_check_list[0] == 'Nmber') and (final_check_list[1] == 'Area') and (final_check_list[2] == 'Bilding/Villa') and (final_check_list[3] == 'Location'):
+        return True
+    else:
+        print("Please edit the names of the columns in ur spreadsheet: col1 = Number, col2 = Area, col3 = Building/Villa, col4 = Location")
+        exit(0)
+        
 #loop through database list and seperate phone number
 def number_loop(database_list_of_lists, number_list):
     for i in range(len(database_list_of_lists)):

@@ -5,6 +5,10 @@ database_list_of_lists = [('1', '33789190', 'Al Waab', '25', '1'),
     ('5', '567492011', 'TIQ', '39', '21.32322,896.2711'),
     ('6', '57585352', 'Paris', '300', '1.32123,78.423')]
 
+first_check_list = []
+
+final_check_list = []
+
 number_list = []
 
 area_list = []
