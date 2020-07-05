@@ -22,3 +22,7 @@ recurring_customers_raw = []
 recurring_customers = []
 
 final_recurring_customers = []
+
+test_list = []
+
+test_test_list = []

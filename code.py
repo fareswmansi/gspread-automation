@@ -1,4 +1,4 @@
-from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw, final_recurring_customers
+from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw, final_recurring_customers, test_list, test_test_list
 from variables import scope, credentials, worksheet, client
 from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring, getting_cell_value, matched_string, find_matched_string
 
@@ -34,7 +34,8 @@ if first_choice == 'yes' or first_choice == 'YES':
 
         getting_cell_value(recurring_customers_raw, recurring_customers)
         matched_string(recurring_customers, final_recurring_customers)
-        find_matched_string(final_recurring_customers)
+        find_matched_string(final_recurring_customers, test_list, test_test_list)
+        print(test_test_list)
 
     else:
         print("Finding recurring orders...")
