@@ -1,11 +1,5 @@
 from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw, final_recurring_customers, test_list, test_test_list, first_check_list, final_check_list, write_in_me
-from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring, getting_cell_value, matched_string, find_matched_string, first_check, you_may_pass
-import time
-from tqdm import tqdm
-
-def progress_bar():
-    for i in tqdm(range(10)):
-        time.sleep(1)
+from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring, getting_cell_value, matched_string, find_matched_string, first_check, you_may_pass, progress_bar
 
 raw_input("Welcome to the gspread automation program. To continue, press enter.")
 

@@ -1,4 +1,11 @@
 from variables import worksheet
+import time
+from tqdm import tqdm
+
+#progress bar to indicate commpletion progress
+def progress_bar():
+    for i in tqdm(range(10)):
+        time.sleep(1)
 
 #gets values of label columns in order to proceed with the checking process
 def first_check(first_check_list, final_check_list):
