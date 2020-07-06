@@ -65,6 +65,11 @@ def area_input(row_coordinate, area_list, number_list):
             worksheet.update_cell(row_coordinate[i], 2, area_list[i])
         except:
             print("Could not input area data for number: %r" % (number_list[i]))
+            text_file = open('failed_input.txt', 'a')
+            text_file.write(str(number_list[i]) + "\n")
+            text_file.close()
+
+
 
 #building input into google sheet
 def building_input(row_coordinate, building_list, number_list):
@@ -82,17 +87,20 @@ def location_input(row_coordinate, location_list, number_list):
         except:
             print("Could not input location data for number: %r" % (number_list[i]))
 
+
+
+#delete
 def find_customers(recurring_customers_raw):
     values = worksheet.col_values(1)
     recurring_customers_raw.append(values)
-
+#delete
 def customer_seperate(recurring_customers, recurring_customers_raw):
     for i in range(len(recurring_customers_raw)):
         seperatefirst = str(recurring_customers_raw[i]).replace('u\'Number\',', '')
         seperatesecond = str(seperatefirst).replace('u\'', '')
         finalseperate = str(seperatesecond).replace('\'', '')
         recurring_customers.append(finalseperate)
-
+#delete
 def find_recurring(recurring_customers):
     for i in range(len(recurring_customers)):
         if recurring_customers[i] == recurring_customers[i]:
@@ -100,14 +108,18 @@ def find_recurring(recurring_customers):
         else:
             print("No recurring customers founnd.")
 
+
+
+#gets value of all numbers in google spreadsheet
 def getting_cell_value(recurring_customers_raw, recurring_customers):
-    cell = worksheet.col_values(1)
+    cell = worksheet.col_values(1, value_render_option='FORMATTED_VALUE')
     recurring_customers_raw.append(cell)
     for list in recurring_customers_raw:
         list.pop(0)
         for i in range(len(list)):
             recurring_customers.append(list[i])
 
+#seperates 
 def matched_string(recurring_customers, final_recurring_customers):
     for i in range(len(recurring_customers)):
         seperatefirst = str(recurring_customers[i]).replace('u\'', '')

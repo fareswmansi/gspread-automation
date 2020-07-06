@@ -1,4 +1,4 @@
-from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw, final_recurring_customers, test_list, test_test_list, first_check_list, final_check_list
+from lists import database_list_of_lists, number_list, area_list, building_list, location_list, test_coordinate_list, row_coordinate, recurring_customers, recurring_customers_raw, final_recurring_customers, test_list, test_test_list, first_check_list, final_check_list, write_in_me
 from functions import number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, area_input, building_input, location_input, find_customers, customer_seperate, find_recurring, getting_cell_value, matched_string, find_matched_string, first_check, you_may_pass
 
 raw_input("Welcome to the gspread automation program. To continue, press enter.")
@@ -24,5 +24,7 @@ location_input(row_coordinate, location_list, number_list)
 print("Recurring customers: ")
 #find recurring customers
 getting_cell_value(recurring_customers_raw, recurring_customers)
+print(recurring_customers)
 matched_string(recurring_customers, final_recurring_customers)
-find_matched_string(number_list, test_list, test_test_list)
+print(final_recurring_customers)
+"""find_matched_string(number_list, test_list, test_test_list)"""
