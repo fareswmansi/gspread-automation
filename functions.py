@@ -59,9 +59,12 @@ def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
         row_coordinate.append(finalSeperate)
 
 #area input into google sheet
-def area_input(row_coordinate, area_list):
+def area_input(row_coordinate, area_list, number_list):
     for i in range(len(row_coordinate)):
-        worksheet.update_cell(row_coordinate[i], 2, area_list[i])
+        try:
+            worksheet.update_cell(row_coordinate[i], 2, area_list[i])
+        except:
+            print("Could not input data for number: %r" % (number_list[i]))
 
 #building input into google sheet
 def building_input(row_coordinate, building_list):
