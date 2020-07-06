@@ -52,9 +52,9 @@ def find_strings(test_coordinate_list, number_list):
             cell = worksheet.find(number_list[i])
             test_coordinate_list.append(cell)
         except:
-            print("No %r found within google spreadsheet" % (number_list[i]))
+            print("Number: %r found within google spreadsheet" % (number_list[i]))
             text_file = open('failed_input.txt', 'a')
-            text_file.write(str(number_list[i]) + "\n")
+            text_file.write("Not found: " + str(number_list[i]) + "\n")
             text_file.close()
 
 #create coordinates for area input
@@ -75,6 +75,8 @@ def area_input(row_coordinate, area_list, number_list):
             worksheet.update_cell(row_coordinate[i], 2, area_list[i])
         except:
             print("Could not input area data for number: %r" % (number_list[i]))
+            text_file = open('failed_input.txt', 'a')
+            text_file.write("Input data error: " + str(number_list[i]) + "\n")
 
 #building input into google sheet
 def building_input(row_coordinate, building_list, number_list):
@@ -82,7 +84,7 @@ def building_input(row_coordinate, building_list, number_list):
         try:
             worksheet.update_cell(row_coordinate[i], 3, building_list[i])
         except:
-            print("Could not input building # data for number: %r" % (number_list[i]))
+            pass
 
 #location innput into google sheet
 def location_input(row_coordinate, location_list, number_list):
@@ -90,7 +92,7 @@ def location_input(row_coordinate, location_list, number_list):
         try:
             worksheet.update_cell(row_coordinate[i], 4, location_list[i])
         except:
-            print("Could not input location data for number: %r" % (number_list[i]))
+            pass
 
 
 
