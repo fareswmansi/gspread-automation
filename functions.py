@@ -16,7 +16,7 @@ def you_may_pass(final_check_list):
     else:
         print("Please edit the names of the columns in ur spreadsheet: col1 = Number, col2 = Area, col3 = Building/Villa, col4 = Location")
         exit(0)
-        
+
 #loop through database list and seperate phone number
 def number_loop(database_list_of_lists, number_list):
     for i in range(len(database_list_of_lists)):
@@ -41,8 +41,11 @@ def location_loop(database_list_of_lists, location_list):
 #find strings for number input
 def find_strings(test_coordinate_list, number_list):
     for i in range(len(number_list)):
-        cell = worksheet.find(number_list[i])
-        test_coordinate_list.append(cell)
+        try:
+            cell = worksheet.find(number_list[i])
+            test_coordinate_list.append(cell)
+        except:
+            print("No %r found within google spreadsheet" % (number_list[i]))
 
 #create coordinates for area input
 def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
@@ -105,6 +108,8 @@ def find_matched_string(number_list, test_list, test_test_list):
     for i in range(len(number_list)):
         cell_list = worksheet.findall(number_list[i])
         test_list.append(cell_list)
-        for number in test_list:
-            if (len(number)) > 1:
-                test_test_list.append(number)
+        for i in range(len(test_list)):
+            if test_list[i][1] == True:
+                print(test_list[i][1])
+            else:
+                print("no recurring customers found.")
