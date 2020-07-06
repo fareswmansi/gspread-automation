@@ -17,9 +17,9 @@ find_strings(test_coordinate_list, number_list)
 row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate)
 
 #input data into google sheet
-area_input(row_coordinate, area_list)
-building_input(row_coordinate, building_list)
-location_input(row_coordinate, location_list)
+area_input(row_coordinate, area_list, number_list)
+building_input(row_coordinate, building_list, number_list)
+location_input(row_coordinate, location_list, number_list)
 
 print("Recurring customers: ")
 #find recurring customers

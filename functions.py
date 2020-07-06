@@ -64,17 +64,23 @@ def area_input(row_coordinate, area_list, number_list):
         try:
             worksheet.update_cell(row_coordinate[i], 2, area_list[i])
         except:
-            print("Could not input data for number: %r" % (number_list[i]))
+            print("Could not input area data for number: %r" % (number_list[i]))
 
 #building input into google sheet
-def building_input(row_coordinate, building_list):
+def building_input(row_coordinate, building_list, number_list):
     for i in range(len(row_coordinate)):
-        worksheet.update_cell(row_coordinate[i], 3, building_list[i])
+        try:
+            worksheet.update_cell(row_coordinate[i], 3, building_list[i])
+        except:
+            print("Could not input building # data for number: %r" % (number_list[i]))
 
 #location innput into google sheet
-def location_input(row_coordinate, location_list):
+def location_input(row_coordinate, location_list, number_list):
     for i in range(len(row_coordinate)):
-        worksheet.update_cell(row_coordinate[i], 4, location_list[i])
+        try:
+            worksheet.update_cell(row_coordinate[i], 4, location_list[i])
+        except:
+            print("Could not input location data for number: %r" % (number_list[i]))
 
 def find_customers(recurring_customers_raw):
     values = worksheet.col_values(1)
