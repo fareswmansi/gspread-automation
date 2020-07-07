@@ -1,0 +1,13 @@
+modules:
+- gspread
+- oath2client
+- time
+- tqdm
+
+other requirements:
+- empty google sheet with 5 columns labeled as such:
+    - Name
+    - Number
+    - Area
+    - Building/Villa
+    - Location
