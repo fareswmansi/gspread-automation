@@ -113,6 +113,7 @@ def row_coordinate_seperate_failedInput(second_test_coordinate_list, test_test_t
         rest = finalSeperate.split(sep, 1)[0]
         second_row_coordinate.append(rest)
 
+#input area data from number list
 def area_input(row_coordinate, area_list, number_list):
     for i in range(len(row_coordinate)):
         try:
@@ -122,11 +123,44 @@ def area_input(row_coordinate, area_list, number_list):
             text_file = open('failed_input.txt', 'a')
             text_file.write("Input data error: " + str(number_list[i]) + "\n")
 
-def second_area_input(second_row_coordinate, area_list, name_list):
+#input area data from name list
+def second_area_input(second_row_coordinate, second_area_list, name_list):
     for i in range(len(name_list)):
         try:
-            worksheet.update_cell(second_row_coordinate[i], 3, area_list[i])
+            worksheet.update_cell(second_row_coordinate[i], 3, second_area_list[i])
         except:
             print("Could not input data for name: %r" % name_list[i])
             text_file = open('failed_input.txt', 'a')
             text_file.write("Input data error: " + str(name_list[i]) + "\n")
+
+#input building data from number list
+def building_input(row_coordinate, building_list):
+    for i in range(len(row_coordinate)):
+        try:
+            worksheet.update_cell(row_coordinate[i], 4, building_list[i])
+        except:
+            pass
+
+#input building data from name list
+def second_building_input(second_row_coordinate, second_building_list):
+    for i in range(len(second_row_coordinate)):
+        try:
+            worksheet.update_cell(second_row_coordinate[i], 4, second_building_list[i])
+        except:
+            pass
+
+#input location data from number list
+def location_input(row_coordinate, location_list):
+    for i in range(len(row_coordinate)):
+        try:
+            worksheet.update_cell(row_coordinate[i], 5, location_list[i])
+        except:
+            pass
+
+#input location data from name list
+def second_location_input(second_row_coordinate, second_location_list):
+    for i in range(len(second_row_coordinate)):
+        try:
+            worksheet.update_cell(second_row_coordinate[i], 5, second_location_list[i])
+        except:
+            pass
