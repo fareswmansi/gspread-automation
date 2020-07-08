@@ -18,6 +18,8 @@ location_list = []
 
 test_coordinate_list = []
 
+raw_row_coordinate = []
+
 row_coordinate = []
 
 recurring_customers_raw = []

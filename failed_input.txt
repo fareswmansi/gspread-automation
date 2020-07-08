@@ -4,3 +4,18 @@ Input data error: 33789190
 Input data error: Fares
 Input data error: Jad
 Input data error: Jawad
+Not found: Fares
+Not found: Jad
+Not found: Jawad
+Not found: Humphrey
+Not found: Kanye West
+Not found: Fares
+Not found: Jad
+Not found: Jawad
+Not found: Humphrey
+Not found: Kanye West
+Not found: Fares
+Not found: Jad
+Not found: Jawad
+Not found: Humphrey
+Not found: Kanye West
