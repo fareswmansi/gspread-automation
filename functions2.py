@@ -50,23 +50,47 @@ def location_loop(database_list_of_lists, location_list):
         location_list.append(database_list_of_lists[i][5])
 
 #find strings for number input
-def find_strings(test_coordinate_list, number_list, name_list, second_test_coordinate_list):
+def find_strings(test_coordinate_list, number_list, name_list, second_test_coordinate_list, use_me):
     for i in range(len(number_list)):
         try:
             cell = worksheet.find(number_list[i])
             test_coordinate_list.append(cell)
         except:
             print("Number %r not found within the google spreadsheet" % (number_list[i]))
+            use_me.append(number_list[i])
             print("Attempting to locate input fields using name...")
-            for l in range(len(name_list)):
-                try:
-                    cell = worksheet.find(name_list[l])
-                    second_test_coordinate_list.append(cell)
-                except:
-                    print("Name: %r not found within the google spreadsheet." % (name_list[l]))
-                    text_file = open('failed_input.txt', 'a')
-                    text_file.write("Not found: " + str(name_list[l]) + "\n")
-                    text_file.close()
+            try:
+                cell = worksheet.find(name_list[i])
+                second_test_coordinate_list.append(cell)
+            except:
+                print("Name: %r not found within the google spreadsheet." % (name_list[i]))
+                text_file = open('failed_input.txt', 'a')
+                text_file.write("Not found: " + str(name_list[i]) + "\n")
+                text_file.close()
+
+#create index to append data to lists to input data using name
+def create_index(use_me, number_list, index_list):
+    for i in range(len(use_me)):
+        index = number_list.index(use_me[i])
+        index_list.append(index)
+
+#append data from area list for name input
+def second_area_loop(index_list, area_list, second_area_list):
+    for i in range(len(index_list)):
+        append_me = area_list[index_list[i]]
+        second_area_list.append(append_me)
+
+#append data from building list for name input
+def second_building_loop(index_list, building_list, second_building_list):
+    for i in range(len(index_list)):
+        append_me = building_list[index_list[i]]
+        second_building_list.append(append_me)
+
+#append data from location list for name input
+def second_location_loop(index_list, location_list, second_location_list):
+    for i in range(len(index_list)):
+        append_me = location_list[index_list[i]]
+        second_location_list.append(append_me)
 
 #create coordinates for area input
 def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
@@ -74,20 +98,35 @@ def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
         seperateMe = str(test_coordinate_list[i]).replace('<Cell ', '')
         secondSeperate = str(seperateMe).replace('u\'%s' % (number_list[i]), '')
         thirdSeperate = str(secondSeperate).replace(' \'>', '')
-        fourthSeperate = str(thirdSeperate).replace('2', '')
-        fifthSeperate = str(fourthSeperate).replace('R', '')
-        finalSeperate = str(fifthSeperate).replace('C', '')
+        fourthSeperate = str(thirdSeperate).replace('R', '')
+        finalSeperate = str(fourthSeperate).replace('C2', '')
         row_coordinate.append(finalSeperate)
-        row_coordinate[0] = '2'
 
-#create row coordinates for name inputs
-def row_coordinate_seperate_failedInput(second_test_coordinate_list, name_list, second_row_coordinate):
+#create coordinates for area input
+def row_coordinate_seperate_failedInput(second_test_coordinate_list, test_test_test_test, name_list, second_row_coordinate):
     for i in range(len(second_test_coordinate_list)):
         seperateMe = str(second_test_coordinate_list[i]).replace('<Cell ', '')
-        secondSeperate = str(seperateMe).replace('u\'%s' % (name_list[i]), '')
-        thirdSeperate = str(secondSeperate).replace(' \'>', '')
-        fourthSeperate = str(thirdSeperate).replace('2', '')
-        fifthSeperate = str(fourthSeperate).replace('R', '')
-        finalSeperate = str(fifthSeperate).replace('C', '')
-        second_row_coordinate.append(finalSeperate)
+        thirdSeperate = str(seperateMe).replace(' \'>', '')
+        fourthSeperate = str(thirdSeperate).replace('R', '')
+        finalSeperate = str(fourthSeperate).replace('C1', '')
+        sep = ' '
+        rest = finalSeperate.split(sep, 1)[0]
+        second_row_coordinate.append(rest)
 
+def area_input(row_coordinate, area_list, number_list):
+    for i in range(len(row_coordinate)):
+        try:
+            worksheet.update_cell(row_coordinate[i], 3, area_list[i])
+        except:
+            print("Could not input data for number: %r" % number_list[i])
+            text_file = open('failed_input.txt', 'a')
+            text_file.write("Input data error: " + str(number_list[i]) + "\n")
+
+def second_area_input(second_row_coordinate, area_list, name_list):
+    for i in range(len(name_list)):
+        try:
+            worksheet.update_cell(second_row_coordinate[i], 3, area_list[i])
+        except:
+            print("Could not input data for name: %r" % name_list[i])
+            text_file = open('failed_input.txt', 'a')
+            text_file.write("Input data error: " + str(name_list[i]) + "\n")
