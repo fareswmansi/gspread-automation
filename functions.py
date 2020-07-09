@@ -18,7 +18,7 @@ def first_check(first_check_list, final_check_list):
 
 #checks the column names in empty spreadsheet to avoid confusion and check compatibility
 def you_may_pass(final_check_list):
-    if (final_check_list[0] == 'Name') and (final_check_list[1] == 'Nmber') and (final_check_list[2] == 'Area') and (final_check_list[3] == 'Bilding/Villa') and (final_check_list[4] == 'Location'):
+    if (final_check_list[0] == 'Name') and (final_check_list[1] == 'Nmber') and (final_check_list[2] == 'Area') and (final_check_list[3] == 'Bilding/Villa') and (final_check_list[4] == 'Location') and (final_check_list[5] == 'Stats'):
         return True
     else:
         print("Please edit the names of the columns in ur spreadsheet: col1 = Name, col2 = Number, col3 = Area, col4 = Bilding/Villa, col5 = Location")
@@ -166,7 +166,9 @@ def second_location_input(second_row_coordinate, second_location_list):
         except:
             pass
 
-def final_check(row_coordinate, second_row_coordinate):
-    length = len(row_coordinate) + len(second_row_coordinate)
-    for i in range(length):
-        cell = worksheet.find()
+#adds status in 6th columnn of google spreadsheet
+def final_check(second_row_coordinate, row_coordinate, status_list):
+    status_list.append(second_row_coordinate + row_coordinate)
+    for list in status_list:
+        for i in range(len(list)):
+            worksheet.update_cell(list[i], 6, "Done")

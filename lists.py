@@ -50,3 +50,7 @@ second_row_coordinate = []
 second_test_coordinate_list = []
 
 test_test_test_test = []
+
+all_coordinates = []
+
+status_list = []
