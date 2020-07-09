@@ -16,7 +16,7 @@ def first_check(first_check_list, final_check_list):
             seperateme = str(list[i]).replace('u', '')
             final_check_list.append(seperateme)
 
-#checks the column names in empty spreadsheet to avoid confusion
+#checks the column names in empty spreadsheet to avoid confusion and check compatibility
 def you_may_pass(final_check_list):
     if (final_check_list[0] == 'Name') and (final_check_list[1] == 'Nmber') and (final_check_list[2] == 'Area') and (final_check_list[3] == 'Bilding/Villa') and (final_check_list[4] == 'Location'):
         return True
@@ -96,11 +96,12 @@ def second_location_loop(index_list, location_list, second_location_list):
 def row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate):
     for i in range(len(test_coordinate_list)):
         seperateMe = str(test_coordinate_list[i]).replace('<Cell ', '')
-        secondSeperate = str(seperateMe).replace('u\'%s' % (number_list[i]), '')
-        thirdSeperate = str(secondSeperate).replace(' \'>', '')
+        thirdSeperate = str(seperateMe).replace(' \'>', '')
         fourthSeperate = str(thirdSeperate).replace('R', '')
         finalSeperate = str(fourthSeperate).replace('C2', '')
-        row_coordinate.append(finalSeperate)
+        sep = ' '
+        rest = finalSeperate.split(sep, 1)[0]
+        row_coordinate.append(rest)
 
 #create coordinates for area input
 def row_coordinate_seperate_failedInput(second_test_coordinate_list, test_test_test_test, name_list, second_row_coordinate):
@@ -164,3 +165,8 @@ def second_location_input(second_row_coordinate, second_location_list):
             worksheet.update_cell(second_row_coordinate[i], 5, second_location_list[i])
         except:
             pass
+
+def final_check(row_coordinate, second_row_coordinate):
+    length = len(row_coordinate) + len(second_row_coordinate)
+    for i in range(length):
+        cell = worksheet.find()
