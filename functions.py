@@ -55,6 +55,7 @@ def find_strings(test_coordinate_list, number_list, name_list, second_test_coord
         try:
             cell = worksheet.find(number_list[i])
             test_coordinate_list.append(cell)
+            return True
         except:
             print("Number %r not found within the google spreadsheet" % (number_list[i]))
             use_me.append(number_list[i])
@@ -62,6 +63,7 @@ def find_strings(test_coordinate_list, number_list, name_list, second_test_coord
             try:
                 cell = worksheet.find(name_list[i])
                 second_test_coordinate_list.append(cell)
+                return False
             except:
                 print("Name: %r not found within the google spreadsheet." % (name_list[i]))
                 text_file = open('failed_input.txt', 'a')

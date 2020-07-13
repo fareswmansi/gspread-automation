@@ -4,6 +4,7 @@ from lists import test_coordinate_list, number_list, row_coordinate, name_list, 
 
 raw_input("Welcome to the gspread automation program. To continue, press ENTER")
 
+
 #check spreadsheet compatibility
 first_check(first_check_list, final_check_list)
 you_may_pass(final_check_list)
@@ -18,6 +19,8 @@ location_loop(database_list_of_lists, location_list)
 
 #create coordinates using number and name
 find_strings(test_coordinate_list, number_list, name_list, second_test_coordinate_list, use_me)
+print(test_coordinate_list)
+print(second_test_coordinate_list)
 row_coordinate_seperate(test_coordinate_list, number_list, row_coordinate)
 row_coordinate_seperate_failedInput(second_test_coordinate_list, test_test_test_test, name_list, second_row_coordinate)
 create_index(use_me, number_list, index_list)
