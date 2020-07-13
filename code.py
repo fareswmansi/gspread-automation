@@ -1,6 +1,6 @@
 from functions import progress_bar, first_check, you_may_pass, name_loop, number_loop, area_loop, building_loop, location_loop, find_strings, row_coordinate_seperate, row_coordinate_seperate_failedInput, area_input, second_area_input, create_index, second_area_loop, second_building_loop, second_location_loop, second_building_input, second_location_input,  building_input, location_input, final_check
-from lists import test_coordinate_list, number_list, row_coordinate, name_list, building_list, location_list, area_list, database_list_of_lists, final_check_list, first_check_list, second_test_coordinate_list, row_coordinate, second_row_coordinate, test_test_test_test, use_me, index_list, second_area_list, second_building_list, second_location_list, all_coordinates, status_list
-
+from lists import test_coordinate_list, number_list, row_coordinate, name_list, building_list, location_list, area_list, final_check_list, first_check_list, second_test_coordinate_list, row_coordinate, second_row_coordinate, test_test_test_test, use_me, index_list, second_area_list, second_building_list, second_location_list, all_coordinates, status_list
+from data import input_here
 
 raw_input("Welcome to the gspread automation program. To continue, press ENTER")
 
@@ -11,11 +11,11 @@ you_may_pass(final_check_list)
 
 progress_bar()
 #create lists for data input using number
-name_loop(database_list_of_lists, name_list)
-number_loop(database_list_of_lists, number_list)
-area_loop(database_list_of_lists, area_list)
-building_loop(database_list_of_lists, building_list)
-location_loop(database_list_of_lists, location_list)
+name_loop(input_here, name_list)
+number_loop(input_here, number_list)
+area_loop(input_here, area_list)
+building_loop(input_here, building_list)
+location_loop(input_here, location_list)
 
 #create coordinates using number and name
 find_strings(test_coordinate_list, number_list, name_list, second_test_coordinate_list, use_me)

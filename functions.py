@@ -25,29 +25,29 @@ def you_may_pass(final_check_list):
         exit(0)
 
 #loop through database list and seperate name
-def name_loop(database_list_of_lists, name_list):
-    for i in range(len(database_list_of_lists)):
-        name_list.append(database_list_of_lists[i][1])
+def name_loop(input_here, name_list):
+    for i in range(len(input_here)):
+        name_list.append(input_here[i][1])
 
 #loop through database list and seperate phone number
-def number_loop(database_list_of_lists, number_list):
-    for i in range(len(database_list_of_lists)):
-        number_list.append(database_list_of_lists[i][2])
+def number_loop(input_here, number_list):
+    for i in range(len(input_here)):
+        number_list.append(input_here[i][2])
 
 #loop through database list and seperate area
-def area_loop(database_list_of_lists, area_list):
-    for i in range(len(database_list_of_lists)):
-        area_list.append(database_list_of_lists[i][3])
+def area_loop(input_here, area_list):
+    for i in range(len(input_here)):
+        area_list.append(input_here[i][3])
 
 #loop through databse list and seperate building #
-def building_loop(database_list_of_lists, building_list):
-    for i in range(len(database_list_of_lists)):
-        building_list.append(database_list_of_lists[i][4])
+def building_loop(input_here, building_list):
+    for i in range(len(input_here)):
+        building_list.append(input_here[i][4])
 
 #loop through database list and seperate location coordinates
-def location_loop(database_list_of_lists, location_list):
-    for i in range(len(database_list_of_lists)):
-        location_list.append(database_list_of_lists[i][5])
+def location_loop(input_here, location_list):
+    for i in range(len(input_here)):
+        location_list.append(input_here[i][5])
 
 #find strings for number input
 def find_strings(test_coordinate_list, number_list, name_list, second_test_coordinate_list, use_me):
